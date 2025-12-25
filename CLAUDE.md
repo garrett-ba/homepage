@@ -6,6 +6,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a Next.js 16 application using the App Router, React 19, TypeScript, and Tailwind CSS v4. The project uses pnpm as the package manager.
 
+**Website Purpose**: This is the homepage for a software development agency that builds tools and software for small- to medium-sized businesses.
+
+## Brand & Design Guidelines
+
+Comprehensive branding and design documentation is located in the `docs/` folder. **Always reference these guidelines when building pages or components.**
+
+### Quick Reference
+
+- **Visual Style**: Modern minimal - clean, spacious, content-focused
+- **Color Palette**: Monochrome base (black/white) with bright blue (#0066FF) and green (#00D084) accents
+- **Typography**: Geist Sans (primary), Geist Mono (code/technical)
+- **Voice & Tone**: Approachable and clear - avoid jargon, write conversationally
+
+### Documentation Files
+
+- `docs/brand-identity.md` - Brand positioning and values
+- `docs/color-palette.md` - Complete color system with Tailwind classes
+- `docs/typography.md` - Type scale, weights, and formatting
+- `docs/voice-and-tone.md` - Writing guidelines and messaging frameworks
+- `docs/visual-style.md` - Layout patterns, components, spacing, and animations
+
+### Design Workflow
+
+When creating new pages or components:
+1. Reference `visual-style.md` for layout and component patterns
+2. Use colors from `color-palette.md` (don't introduce new colors)
+3. Follow typography hierarchy from `typography.md`
+4. Write copy following `voice-and-tone.md` guidelines
+
 ## Development Commands
 
 ```bash
