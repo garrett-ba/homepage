@@ -19,7 +19,7 @@ We are a software development agency that builds tools and software for small- t
 
 ## Visual Identity Summary
 
-- **Style**: Modern minimal - clean, spacious, content-focused
-- **Color Approach**: Monochrome foundation with vibrant accents
-- **Typography**: Professional yet approachable
-- **Imagery**: Clean, purposeful, supportive of content
+- **Style**: Modern dark minimal - clean, spacious, content-focused with dark theme
+- **Color Approach**: Dark backgrounds (black/dark grays) with vibrant accent colors (blue/green) and subtle gradients
+- **Typography**: Large, bold white headlines on dark backgrounds; professional yet approachable
+- **Imagery**: Dark-themed UI screenshots, clean graphics, purposeful visuals that support content

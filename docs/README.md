@@ -21,15 +21,19 @@ Visual design principles, component patterns, layout guidelines, spacing, and in
 
 ## Quick Reference
 
+**Theme**: Dark-first design with dark backgrounds and light text
+
 **Colors**:
-- Base: Black (#000000) and White (#FFFFFF)
+- Backgrounds: Black (#000000) and dark grays (zinc-900, zinc-950)
+- Text: White (#FFFFFF) for headlines, zinc-400 for body text
 - Accents: Bright Blue (#0066FF) and Bright Green (#00D084)
+- Gradients: Dark blue-purple gradients for depth and visual interest
 
 **Fonts**:
 - Primary: Geist Sans
 - Mono: Geist Mono
 
-**Style**: Modern minimal - clean, spacious, content-focused
+**Style**: Modern dark minimal - clean, spacious, content-focused with dark theme
 
 **Tone**: Approachable and clear
 

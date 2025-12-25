@@ -36,46 +36,70 @@ Use a clear, hierarchical type scale for consistency.
 
 ### Headlines
 
+**On Dark Backgrounds (Primary)**:
+```tsx
+// H1 - Page titles, hero headlines (Large, bold white text)
+className="text-6xl md:text-7xl font-bold tracking-tight text-white"
+// 60px/72px, bold, tight letter spacing, white text
+
+// H2 - Major section headers
+className="text-4xl md:text-5xl font-semibold tracking-tight text-white"
+// 36px/48px, semi-bold, tight letter spacing, white text
+
+// H3 - Subsection headers
+className="text-3xl font-semibold tracking-tight text-white"
+// 30px, semi-bold, tight letter spacing, white text
+
+// H4 - Minor headers
+className="text-2xl font-semibold text-white"
+// 24px, semi-bold, white text
+
+// H5 - Small headers
+className="text-xl font-semibold text-white"
+// 20px, semi-bold, white text
+```
+
+**On Light Backgrounds (When Needed)**:
 ```tsx
 // H1 - Page titles, hero headlines
-className="text-5xl font-semibold tracking-tight"
+className="text-5xl font-semibold tracking-tight text-black"
 // 48px, semi-bold, tight letter spacing
 
 // H2 - Major section headers
-className="text-4xl font-semibold tracking-tight"
+className="text-4xl font-semibold tracking-tight text-black"
 // 36px, semi-bold, tight letter spacing
-
-// H3 - Subsection headers
-className="text-3xl font-semibold tracking-tight"
-// 30px, semi-bold, tight letter spacing
-
-// H4 - Minor headers
-className="text-2xl font-semibold"
-// 24px, semi-bold
-
-// H5 - Small headers
-className="text-xl font-semibold"
-// 20px, semi-bold
 ```
 
 ### Body Text
 
+**On Dark Backgrounds (Primary)**:
 ```tsx
 // Large body - Introductory text, important paragraphs
-className="text-lg leading-8"
+className="text-lg leading-8 text-zinc-400"
+// 18px, line-height 32px, light gray text
+
+// Default body - Standard content
+className="text-base leading-7 text-zinc-400"
+// 16px, line-height 28px, light gray text
+
+// Small text - Captions, labels, secondary info
+className="text-sm leading-6 text-zinc-500"
+// 14px, line-height 24px, medium gray text
+
+// Extra small - Fine print, metadata
+className="text-xs leading-5 text-zinc-500"
+// 12px, line-height 20px, medium gray text
+```
+
+**On Light Backgrounds (When Needed)**:
+```tsx
+// Large body - Introductory text, important paragraphs
+className="text-lg leading-8 text-zinc-600"
 // 18px, line-height 32px
 
 // Default body - Standard content
-className="text-base leading-7"
+className="text-base leading-7 text-black"
 // 16px, line-height 28px
-
-// Small text - Captions, labels, secondary info
-className="text-sm leading-6"
-// 14px, line-height 24px
-
-// Extra small - Fine print, metadata
-className="text-xs leading-5"
-// 12px, line-height 20px
 ```
 
 ### Special Text
@@ -120,13 +144,21 @@ Avoid using light or bold weights - the above three provide sufficient hierarchy
 - **Body text**: Default tracking (no class needed)
 - **Labels/UI**: Wide tracking for small uppercase text - use `tracking-wide`
 
-### Text Color
+### Text Color (Dark Theme - Primary)
 
-- **Primary content**: `text-black dark:text-zinc-50`
-- **Secondary content**: `text-zinc-600 dark:text-zinc-400`
-- **Muted content**: `text-zinc-400 dark:text-zinc-500`
+- **Primary content/Headlines**: `text-white` - Large, bold white headlines are the primary element
+- **Body text**: `text-zinc-400` - Secondary text in lighter gray for readability on dark backgrounds
+- **Muted content**: `text-zinc-500` - Tertiary text for de-emphasized content
+- **Navigation/UI text**: `text-white hover:text-zinc-400` - White with lighter gray on hover
 - **Accent links (Blue)**: `text-accent-blue hover:text-accent-blue-hover`
 - **Accent links (Green)**: `text-accent-green hover:text-accent-green-hover`
+
+### Text Color (Light Theme - When Needed)
+
+For sections that use light backgrounds:
+- **Primary content**: `text-black`
+- **Secondary content**: `text-zinc-600`
+- **Muted content**: `text-zinc-400`
 
 ### Alignment
 
