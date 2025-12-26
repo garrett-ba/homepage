@@ -1,4 +1,41 @@
+'use client';
+
+import { useState } from 'react';
+import { submitCTAForm } from '../actions/submit-cta';
+
 export default function CTA() {
+  const [status, setStatus] = useState<{
+    success: boolean;
+    message?: string;
+    error?: string;
+  } | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(formData: FormData) {
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const result = await submitCTAForm(formData);
+      setStatus(result);
+
+      if (result.success) {
+        // Reset form on success
+        const form = document.getElementById('cta-form') as HTMLFormElement;
+        if (form) {
+          form.reset();
+        }
+      }
+    } catch (error) {
+      setStatus({
+        success: false,
+        error: 'An unexpected error occurred. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       {/* Background gradient */}
@@ -19,8 +56,23 @@ export default function CTA() {
           Book a free 30-minute call. We&apos;ll talk about what&apos;s slowing you down and whether automation makes sense for your business. No pressure, no pitch.
         </p>
 
+        {/* Status Messages */}
+        {status && (
+          <div
+            className={`mb-6 p-4 rounded-lg ${
+              status.success
+                ? 'bg-accent-green/20 border border-accent-green/50 text-accent-green'
+                : 'bg-red-500/20 border border-red-500/50 text-red-400'
+            }`}
+          >
+            <p className="text-sm font-medium">
+              {status.success ? status.message : status.error}
+            </p>
+          </div>
+        )}
+
         {/* Form */}
-        <form className="space-y-5">
+        <form id="cta-form" action={handleSubmit} className="space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {/* Name */}
             <div>
@@ -33,6 +85,7 @@ export default function CTA() {
                 name="name"
                 placeholder="Your name"
                 className="w-full h-12 px-4 rounded-lg bg-black/40 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-accent-green/50 focus:ring-1 focus:ring-accent-green/50 transition-colors"
+                minLength={1}
               />
             </div>
 
@@ -99,9 +152,10 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <button
               type="submit"
-              className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-full bg-accent-green text-black font-semibold text-lg hover:bg-accent-green-hover transition-colors"
+              disabled={isSubmitting}
+              className="w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 rounded-full bg-accent-green text-black font-semibold text-lg hover:bg-accent-green-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Book a Free Consultation
+              {isSubmitting ? 'Submitting...' : 'Book a Free Consultation'}
             </button>
             <a
               href="mailto:hello@bendautomation.com"
